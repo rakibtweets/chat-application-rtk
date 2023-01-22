@@ -6,10 +6,5 @@ export const apiSlice = createApi({
     baseUrl: process.env.REACT_APP_API_URL
   }),
   tagTypes: [],
-
-  endpoints: (builder) => ({
-    getV: builder.query({
-      query: ''
-    })
-  })
+  endpoints: (builder) => ({})
 });
