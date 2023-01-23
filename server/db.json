@@ -17,6 +17,11 @@
       "password": "$2a$10$CtHS.yCGS80jiuZx8yKEI.5zdiZykHF/6aPTDqpHl6ZqEFGISOHKO",
       "name": "Saad Hasan",
       "id": 3
+    },
+    {
+      "email": "olivier@mail.com",
+      "password": "$2a$10$nPj0Dq.VFU1HsrsgMZ3EXOhobDaM.3vluc9vOe/iMO0QQGTL22Rs2",
+      "id": 4
     }
   ],
   "conversations": [
