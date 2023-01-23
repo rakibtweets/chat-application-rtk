@@ -8,6 +8,13 @@ export const authApi = apiSlice.injectEndpoints({
         method: 'POST',
         body: data
       })
+    }),
+    login: builder.mutation({
+      query: (data) => ({
+        url: '/login',
+        method: 'POST',
+        body: data
+      })
     })
   })
 });
