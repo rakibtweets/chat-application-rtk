@@ -22,6 +22,18 @@
       "email": "olivier@mail.com",
       "password": "$2a$10$nPj0Dq.VFU1HsrsgMZ3EXOhobDaM.3vluc9vOe/iMO0QQGTL22Rs2",
       "id": 4
+    },
+    {
+      "email": "rakib@gmail.com",
+      "password": "$2a$10$SkjqcNy4kI4Of0.oSn1MRu66ZSUuBJWogbNY.zc12gSuYJcYFgrcy",
+      "name": "Rakib Hasan",
+      "id": 5
+    },
+    {
+      "email": "jahidhasan@gmail.com",
+      "password": "$2a$10$qLRQxAmJZSUeftewLZWiOO3fLplmbQyq.C.5gY7XfcjwwQzgyM7yC",
+      "name": "Jahid Hasan",
+      "id": 6
     }
   ],
   "conversations": [

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import logoImage from '../assets/images/lws-logo-light.svg';
 import Error from '../components/ui/Error';
 import { useRegisterMutation } from '../features/auth/authApi';
@@ -11,9 +11,9 @@ export default function Register() {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [agreed, setAgreed] = useState(false);
   const [error, setError] = useState('');
-  console.log('env url:', process.env.REACT_APP_API_URL);
 
-  const [register, { data: user, isLoading, error: resError }] =
+  const navigate = useNavigate();
+  const [register, { data, isLoading, error: resError }] =
     useRegisterMutation();
 
   const reset = () => {
@@ -41,9 +41,15 @@ export default function Register() {
   };
 
   useEffect(() => {
-    console.log(user);
+    console.log(data);
     console.log(resError);
-  }, [user, resError]);
+    if (resError?.data) {
+      setError(resError.data);
+    }
+    if (data?.accessToken && data?.user) {
+      navigate('/inbox');
+    }
+  }, [data, resError, navigate]);
 
   return (
     <div className="grid place-items-center h-screen bg-[#F9FAFB">
