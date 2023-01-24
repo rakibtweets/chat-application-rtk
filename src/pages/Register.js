@@ -41,8 +41,8 @@ export default function Register() {
   };
 
   useEffect(() => {
-    console.log(data);
-    console.log(resError);
+    // console.log(data);
+    // console.log(resError);
     if (resError?.data) {
       setError(resError.data);
     }
