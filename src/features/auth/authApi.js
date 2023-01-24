@@ -22,6 +22,7 @@ export const authApi = apiSlice.injectEndpoints({
             })
           );
 
+          // save to redux state
           dispatch(
             userLoggedIn({
               accessToken: result.data.accessToken,
@@ -51,7 +52,7 @@ export const authApi = apiSlice.injectEndpoints({
               user: result.data.user
             })
           );
-
+          // save to redux state
           dispatch(
             userLoggedIn({
               accessToken: result.data.accessToken,
