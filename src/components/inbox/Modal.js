@@ -19,8 +19,8 @@ export default function Modal({ open, control }) {
     if (isValidateEmail(value)) {
       // check user api'
       console.log('Email is valid');
+      setSendTo(value);
     }
-    setSendTo(value);
   };
 
   const handleSearch = debounceHandler(doSearch, 50);
