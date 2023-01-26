@@ -4,7 +4,7 @@ import isValidateEmail from '../../utils/isValidEmail';
 export default function Modal({ open, control }) {
   const [sendTo, setSendTo] = useState('');
   const [message, setMessage] = useState('');
-
+// Js denounce method: api will call when typing stopped
   const debounceHandler = (fn, delay) => {
     let timeoutId;
     return (...args) => {
@@ -14,7 +14,7 @@ export default function Modal({ open, control }) {
       }, delay);
     };
   };
-
+// search input value
   const doSearch = (value) => {
     if (isValidateEmail(value)) {
       // check user api'
