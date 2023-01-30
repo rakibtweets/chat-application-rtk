@@ -1,10 +1,17 @@
 import { useState } from 'react';
+import { useGetUserQuery } from '../../features/users/usersApi';
 import isValidateEmail from '../../utils/isValidEmail';
+import Error from '../ui/Error';
 
 export default function Modal({ open, control }) {
   const [sendTo, setSendTo] = useState('');
   const [message, setMessage] = useState('');
-// Js denounce method: api will call when typing stopped
+  const [userCheck, setUserCheck] = useState(false);
+
+  const { data: participant } = useGetUserQuery(sendTo, {
+    skip: !userCheck
+  });
+  // Js denounce method: api will call when typing stopped
   const debounceHandler = (fn, delay) => {
     let timeoutId;
     return (...args) => {
@@ -14,16 +21,18 @@ export default function Modal({ open, control }) {
       }, delay);
     };
   };
-// search input value
+  // search input value
   const doSearch = (value) => {
     if (isValidateEmail(value)) {
       // check user api'
       console.log('Email is valid');
       setSendTo(value);
+      setUserCheck(true);
     }
   };
 
   const handleSearch = debounceHandler(doSearch, 50);
+
   return (
     open && (
       <>
@@ -79,7 +88,9 @@ export default function Modal({ open, control }) {
               </button>
             </div>
 
-            {/* <Error message="There was an error" /> */}
+            {participant?.length === 0 && (
+              <Error message="This user doesn't exist !" />
+            )}
           </form>
         </div>
       </>
