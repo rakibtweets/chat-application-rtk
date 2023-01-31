@@ -7,12 +7,6 @@
       "id": 1
     },
     {
-      "email": "akash@learnwithsumit.com",
-      "password": "$2a$10$CtHS.yCGS80jiuZx8yKEI.5zdiZykHF/6aPTDqpHl6ZqEFGISOHKO",
-      "name": "Akash Ahmed",
-      "id": 2
-    },
-    {
       "email": "saad@learnwithsumit.com",
       "password": "$2a$10$CtHS.yCGS80jiuZx8yKEI.5zdiZykHF/6aPTDqpHl6ZqEFGISOHKO",
       "name": "Saad Hasan",
@@ -40,6 +34,12 @@
       "password": "$2a$10$w16UH2QaNfZMDswTEkTnzu8mFAO1HTmWrcWzdEWifTTvs4BHCxUkS",
       "name": "sumit vai",
       "id": 7
+    },
+    {
+      "email": "akash@learnwithsumit.com",
+      "password": "$2a$10$9ihPf/ACX4qkK9ETb1e4v.K5NK51OWiZR/aizqMF6TCvLF9FIn8Dq",
+      "name": "Akash",
+      "id": 8
     }
   ],
   "conversations": [
@@ -50,12 +50,12 @@
         {
           "email": "sumit@learnwithsumit.com",
           "name": "Sumit Saha",
-          "id": 1
+          "id": 7
         },
         {
           "email": "akash@learnwithsumit.com",
           "name": "Akash Ahmed",
-          "id": 2
+          "id": 8
         }
       ],
       "message": "How are you?",

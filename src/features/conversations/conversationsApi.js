@@ -8,7 +8,7 @@ export const conversationsApi = apiSlice.injectEndpoints({
     }),
     getConversation: builder.query({
       query: ({ userEmail, participantEmail }) =>
-        `/conversations?participants_like=${userEmail}-${participantEmail}}&&participants_like=${participantEmail}-${userEmail}}`
+        `/conversations?participants_like=${userEmail}-${participantEmail}&&participants_like=${participantEmail}-${userEmail}`
     }),
     addConversation: builder.mutation({
       query: (data) => ({
