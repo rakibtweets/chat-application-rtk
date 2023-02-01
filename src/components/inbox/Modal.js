@@ -52,6 +52,14 @@ export default function Modal({ open, control }) {
     }
   }, [participant, myEmail, dispatch, sendTo]);
 
+  // listen conversation add/edit success
+  useEffect(() => {
+    if (isAddConversationSuccess || isEditConversationSuccess) {
+      control();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isAddConversationSuccess, isEditConversationSuccess]);
+
   // Js denounce method: api will call when typing stopped
   const debounceHandler = (fn, delay) => {
     let timeoutId;
@@ -83,13 +91,19 @@ export default function Modal({ open, control }) {
         data: {
           participants: `${myEmail}-${participant[0].email}`,
           users: [loggedInUser, participant[0]],
-          message
+          message,
+          timestamp: new Date().getTime()
         }
       });
     }
     if (conversation?.length === 0) {
       // add conversation
-      addConversation(conversation);
+      addConversation({
+        participants: `${myEmail}-${participant[0].email}`,
+        users: [loggedInUser, participant[0]],
+        message,
+        timestamp: new Date().getTime()
+      });
     }
   };
 
