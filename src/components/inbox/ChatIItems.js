@@ -14,7 +14,7 @@ export default function ChatItems() {
     isLoading,
     isError,
     error
-  } = useGetConversationsQuery(user.email);
+  } = useGetConversationsQuery(user?.email);
 
   // decide whate to render
   let content = null;
@@ -26,16 +26,21 @@ export default function ChatItems() {
     content = <Error message={error?.data} />;
   }
   if (!isLoading && !isError && conversations?.length > 0) {
-    content = conversations.map((conversation) => {
+    content = conversations?.map((conversation) => {
       const { id, message, timestamp, users } = conversation;
+      // console.log('content=conversations.map  users', users);
       const partner = getPartnerInfo(users, user.email);
+      console.log('content=conversations.map  partner', partner);
       return (
         <li key={id}>
           <Link to={`/inbox/${id}`}>
             <ChatItem
-              avatar={gravatarUrl(partner.email, {
-                size: 80
-              })}
+              avatar={gravatarUrl(
+                'https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50',
+                {
+                  size: 80
+                }
+              )}
               name={partner.name}
               lastMessage={message}
               lastTime={moment(timestamp).fromNow()}

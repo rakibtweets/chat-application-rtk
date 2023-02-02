@@ -1,5 +1,5 @@
 const getPartnerInfo = (participants, email) => {
-  return participants.find((participants) => participants.email !== email);
+  return participants.find((participant) => participant.email !== email);
 };
 
 export default getPartnerInfo;

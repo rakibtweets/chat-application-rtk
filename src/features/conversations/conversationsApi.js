@@ -18,7 +18,6 @@ export const conversationsApi = apiSlice.injectEndpoints({
         body: data
       }),
       async onQueryStarted(arg, { queryFulfilled, dispatch }) {
-        console.log('onQueryStarted  arg', arg);
         // after query have done
         const conversation = await queryFulfilled;
         if (conversation?.data?.id) {
