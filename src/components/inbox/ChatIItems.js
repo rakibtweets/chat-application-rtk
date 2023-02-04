@@ -28,9 +28,7 @@ export default function ChatItems() {
   if (!isLoading && !isError && conversations?.length > 0) {
     content = conversations?.map((conversation) => {
       const { id, message, timestamp, users } = conversation;
-      // console.log('content=conversations.map  users', users);
       const partner = getPartnerInfo(users, user.email);
-      console.log('content=conversations.map  partner', partner);
       return (
         <li key={id}>
           <Link to={`/inbox/${id}`}>

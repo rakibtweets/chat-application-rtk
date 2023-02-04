@@ -8,9 +8,7 @@ export default function Options({ info }) {
   const { user: loggedInUser } = useSelector((state) => state.auth);
 
   const participantUser =
-    info.receiver?.email !== loggedInUser.email
-      ? info.receiver.email
-      : info.sender;
+    info.receiver.email !== loggedInUser.email ? info.receiver : info.sender;
 
   // add conversation
   const [editConversation, { isSuccess }] = useEditConversationMutation();
