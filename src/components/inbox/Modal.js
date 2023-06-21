@@ -25,6 +25,11 @@ export default function Modal({ open, control }) {
     skip: !userCheck
   });
 
+  const formReset = () => {
+    setMessage('');
+    setSendTo('');
+  };
+
   // add conversation
   const [addConversation, { isSuccess: isAddConversationSuccess }] =
     useAddConversationMutation();
@@ -73,7 +78,6 @@ export default function Modal({ open, control }) {
   const doSearch = (value) => {
     if (isValidateEmail(value)) {
       // check user api'
-      console.log('Email is valid');
       setSendTo(value);
       setUserCheck(true);
     }
@@ -83,6 +87,7 @@ export default function Modal({ open, control }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     if (conversation?.length > 0) {
       // edit conversation
       editConversation({
@@ -108,6 +113,7 @@ export default function Modal({ open, control }) {
         }
       });
     }
+    formReset();
   };
 
   return (

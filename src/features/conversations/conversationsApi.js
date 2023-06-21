@@ -51,10 +51,13 @@ export const conversationsApi = apiSlice.injectEndpoints({
             'getConversations',
             arg.sender,
             (draft) => {
-              // eslint-disable-next-line eqeqeq
-              const draftConversation = draft.find((c) => c.id == arg.id);
+              const draftConversation = draft.find(
+                (c) => c.id === arg.conversationId
+              );
+
               draftConversation.message = arg?.data?.message;
               draftConversation.timestamp = arg?.data?.timestamp;
+              return draft;
             }
           )
         );
@@ -84,7 +87,7 @@ export const conversationsApi = apiSlice.injectEndpoints({
 
             // update message cache pessimistically start
             dispatch(
-              apiSlice.util.updateQueryData(
+              messagesApi.util.updateQueryData(
                 'getMessages',
                 res.conversationId.toString(),
                 (draft) => {
